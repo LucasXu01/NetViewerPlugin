@@ -1,0 +1,21 @@
+apply plugin: 'groovy'
+apply plugin: 'kotlin'
+apply plugin: "com.vanniktech.maven.publish"
+// Kotlin Javadoc，非必须。如果有这个插件，发布时会生成 Javadoc，会延长发布时间。建议在 snapshot 阶段关闭
+apply plugin: "org.jetbrains.dokka"
+
+
+//gradle 开发 sdk 依赖
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+
+    //noinspection GradleDependency
+    implementation 'org.ow2.asm:asm:7.1'
+    //noinspection GradleDependency
+    implementation 'org.ow2.asm:asm-util:7.1'
+    //noinspection GradleDependency
+    implementation 'org.ow2.asm:asm-commons:7.1'
+    implementation 'com.android.tools.build:gradle:4.1.3'
+    implementation 'cn.quinnchen.hunter:hunter-transform:1.2.1'
+}

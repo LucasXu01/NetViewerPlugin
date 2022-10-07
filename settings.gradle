@@ -1,0 +1,20 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven { url '/Users/a58/.m2/repository' }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url '/Users/a58/.m2/repository' }
+    }
+}
+rootProject.name = "NetViewerPlugin"
+include ':app'
+include ':netviewerplugin'
+include ':netviewer'
