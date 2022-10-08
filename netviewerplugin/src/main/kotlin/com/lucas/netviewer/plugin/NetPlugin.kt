@@ -9,15 +9,15 @@ import java.util.*
 class NetPlugin : Plugin<Project> {
 
     override fun apply(project: Project) {
-        var enableMonitorPlugin = true
+        var enableNetPlugin = true
         val properties = Properties()
         val file = project.rootProject.file("local.properties")
         if (file.exists()) {
             properties.load(file.inputStream())
-            enableMonitorPlugin = properties.getProperty("monitor.enablePlugin", "true")?.toBoolean() ?: true
+            enableNetPlugin = properties.getProperty("net.enablePlugin", "true")?.toBoolean() ?: true
         }
-        println("MonitorPlugin---->enableMonitorPlugin = $enableMonitorPlugin")
-        if (!enableMonitorPlugin) return
+        println("MonitorPlugin---->enableMonitorPlugin = $enableNetPlugin")
+        if (!enableNetPlugin) return
         try {
             val appException: AppExtension = project.extensions.getByName("android") as AppExtension
             appException.registerTransform(OkHttpTransform(project))
